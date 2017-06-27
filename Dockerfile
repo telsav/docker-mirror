@@ -11,6 +11,12 @@ apt-get clean
 RUN apt-get install -y openssh-server python3 python-pip python-m2crypto libnet1-dev libpcap0.8-dev git gcc && \
 apt-get clean
 
+RUN apt-get install -y nginx && \
+apt-get clean
+
+COPY nginx.conf /etc/nginx/nginx.conf
+
+
 RUN echo "root:password"|chpasswd
 RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
 	sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
