@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:16.04
 MAINTAINER Charlie Wang<272876047@qq.com>
 
 #参数
@@ -6,10 +6,11 @@ ENV DOMAIN **None**
 ENV MIRROR_NAME google
 
 #cron可选安装。
-RUN apt-get update && \cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+RUN apt-get update && \
+    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     apt-get install -y openssh-server build-essential patch binutils make devscripts nano libtool libssl-dev libxml2 \
-                       libxml2-dev software-properties-common python-software-properties dnsutils \
-                       git wget curl python3 python3-dev iftop cron && \
+    libxml2-dev software-properties-common python-software-properties dnsutils \
+    git wget curl python3 python3-dev iftop cron && \
     wget --no-check-certificate https://bootstrap.pypa.io/get-pip.py -O - | python3
 
 #推荐安装的cChardet fastcache需要安装python3-dev和build-essential
