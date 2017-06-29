@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu
 MAINTAINER Charlie Wang<272876047@qq.com>
 
 #参数
