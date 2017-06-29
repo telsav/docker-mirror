@@ -5,9 +5,6 @@ MAINTAINER Charlie Wang<272876047@qq.com>
 ENV DOMAIN **None**
 ENV MIRROR_NAME google
 
-RUN apt-get update && \
-apt-get clean  
-
 #cron可选安装。
 RUN apt-get update && \cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     apt-get install -y openssh-server build-essential patch binutils make devscripts nano libtool libssl-dev libxml2 \
