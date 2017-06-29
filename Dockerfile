@@ -16,7 +16,7 @@ RUN apt-get update && \
 #推荐安装的cChardet fastcache需要安装python3-dev和build-essential
 RUN pip3 install -r https://raw.githubusercontent.com/aploium/zmirror/master/requirements.txt
 
-#Apache2 installation。 "LC_ALL=C.UTF-8"必须添加，要不然apt-key获取失败会导致后续很多错误。
+#Apache2 installation LC_ALL=C.UTF-8"必须添加，要不然apt-key获取失败会导致后续很多错误
 RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/apache2 && \
     apt-key update && apt-get update && apt-get upgrade -y && \
     apt-get install -y apache2 && \
